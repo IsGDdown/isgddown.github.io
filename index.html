@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is Geometry Dash Down?</title>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #252429;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #252429;
+            width: 100%;
+            max-width: 450px;
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        #h1 {
+            font-size: 1.6rem;
+            margin-bottom: 100px; 
+            color: white;
+            
+        }
+
+        .status-box {
+            padding: 25px;
+            border-radius: 12px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            word-wrap: break-word;
+        }
+
+        .checking { background-color: #252429; color: #94a3b8; }
+        .online { background-color: #252429; color: #4ade80}
+        .offline { background-color: #252429; color: #f87171; }
+
+        .subtext {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            background-color: #2563eb;
+            color: #ffffff;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn:hover { background-color: #1d4ed8; }
+        .btn:disabled { background-color: #475569; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+
+   <div class="card">
+        <img src="font.png" id="h1"  height="40px">
+        
+        <div id="status-box" class="status-box checking">
+            Loading...
+        </div>
+
+        <p class="subtext">
+            Website checks servers of the game using direct adress <strong>boomlings.com</strong>, works by loading an image in the background hidden.
+        </p>
+
+       
+    </div>
+
+    <script>
+        const statusBox = document.getElementById("status-box");
+        
+
+        function sprawdzGD() {
+            statusBox.className = "status-box checking";
+            statusBox.innerText = "Loading...";
+            
+
+            const img = new Image();
+            
+            const timeoutTimer = setTimeout(() => {
+                img.onload = null;
+                img.onerror = null;
+                statusBox.className = "status-box offline";
+                statusBox.innerText = "Short Answer: Yes";
+                
+            }, 6000);
+
+            img.onload = img.onerror = function() {
+                clearTimeout(timeoutTimer);
+                statusBox.className = "status-box online";
+                statusBox.innerText = "Short Answer: No";
+                
+            };
+
+            img.src = "https://boomlings.com" + Date.now();
+        }
+
+        window.addEventListener("DOMContentLoaded", sprawdzGD);
+        refreshBtn.addEventListener("click", sprawdzGD);
+    </script>
+
+</body>
+</html>
+
