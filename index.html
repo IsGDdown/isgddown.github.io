@@ -169,7 +169,7 @@
                 statusBox.innerText = "Short Answer: No";
             };
 
-            img.src = "https://boomlings.com?" + Date.now();
+            fetch("/api/status")
         }
 
         window.addEventListener("DOMContentLoaded", sprawdzGD);
