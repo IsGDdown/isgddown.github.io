@@ -4,7 +4,7 @@ export default {
 
     if (url.pathname === "/api/status") {
       try {
-        const response = await fetch("https://boomlings.com/favicon.ico", {
+        const response = await fetch("https://www.boomlings.com/database/accounts/accountManagement.php", {
           method: "GET",
           cf: {
             cacheTtl: 0,
