@@ -150,26 +150,29 @@
     <script>
         const statusBox = document.getElementById("status-box");
 
-        function sprawdzGD() {
-            statusBox.className = "status-box checking";
-            statusBox.innerText = "Loading...";
+        async function sprawdzGD() {
+    statusBox.className = "status-box checking";
+    statusBox.innerText = "Loading...";
 
-            const img = new Image();
-            
-            const timeoutTimer = setTimeout(() => {
-                img.onload = null;
-                img.onerror = null;
-                statusBox.className = "status-box offline";
-                statusBox.innerText = "Short Answer: Yes";
-            }, 6000);
+    try {
+        const response = await fetch("/api/status", {
+            cache: "no-store"
+        });
 
-            img.onload = img.onerror = function() {
-                clearTimeout(timeoutTimer);
-                statusBox.className = "status-box online";
-                statusBox.innerText = "Short Answer: No";
-            };
+        const data = await response.json();
 
-            fetch("/api/status")
+        if (data.online) {
+            statusBox.className = "status-box online";
+            statusBox.innerText = "Short Answer: No";
+        } else {
+            statusBox.className = "status-box offline";
+            statusBox.innerText = "Short Answer: Yes";
+        }
+
+    } catch (error) {
+        statusBox.className = "status-box checking";
+        statusBox.innerText = "Unable to check";
+    }
         }
 
         window.addEventListener("DOMContentLoaded", sprawdzGD);
