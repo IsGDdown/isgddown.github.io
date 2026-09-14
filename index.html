@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Check Here If Geometry Dash Servers Are Live Or Down | Geometry Dash Server Status">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="manifest" href="site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
 
     <title>Is Geometry Dash Down?</title>
     
@@ -23,10 +23,16 @@
             color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             display: flex;
+            flex-direction: column; /* Pozwala układać elementy pionowo w dół */
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px 20px;
+        }
+        h1{
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 10px;
         }
 
         .card {
@@ -42,7 +48,6 @@
             font-size: 1.6rem;
             margin-bottom: 100px; 
             color: white;
-            
         }
 
         .status-box {
@@ -68,48 +73,86 @@
             line-height: 1.5;
         }
 
-        .btn {
-            background-color: #2563eb;
-            color: #ffffff;
-            border: none;
+        /* Naprawione style dla FAQ – ładnie wyśrodkowane i równe z kartą */
+        .faq-section {
             width: 100%;
-            padding: 16px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            -webkit-tap-highlight-color: transparent;
+            max-width: 450px;
+            margin-top: 40px;
+            text-align: left;
+            padding: 0 10px;
         }
 
-        .btn:hover { background-color: #1d4ed8; }
-        .btn:disabled { background-color: #475569; cursor: not-allowed; }
+        .faq-section h2 {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .faq-item p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
-
-   <div class="card">
-        <img src="font.png" id="h1"  height="40px">
+    <h1> Geometry Dash Server Status </h1>
+    <!-- Główna karta ze statusem -->
+    <div class="card">
+        <img src="font.png" id="h1" height="40px" alt="Is Geometry Dash Down?">
         
         <div id="status-box" class="status-box checking">
             Loading...
         </div>
 
         <p class="subtext">
-            Website checks servers of the game using direct adress <strong>boomlings.com</strong>, works by loading an image in the background hidden.
+            Website checks servers of the game using direct address <strong>boomlings.com</strong>, works by loading an image in the background hidden.
         </p>
+    </div>
 
-       
+    <!-- Naprawiona sekcja FAQ – teraz pod spodem karty, idealnie wyrównana -->
+    <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <h3>How do I know if Geometry Dash servers are down?</h3>
+            <p>If the box above displays "Short Answer: Yes", the servers are currently unreachable. If it says "No", the servers are up, and the issue is likely on your end.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Why can't I connect to Geometry Dash?</h3>
+            <p>Connection issues usually happen due to database maintenance, high player traffic, or local network problems. Check your internet connection if this tracker says servers are online.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Why am I getting a "Save Failed" error?</h3>
+            <p>If the servers are online but you can't save your progress, your save file might be too heavy. Try deleting copyable levels, clearing your downloaded songs, and removing created levels from your list.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is this an official RobTop status checker?</h3>
+            <p>No, this is a lightweight, fan-made community tool. It checks the live status of the official boomlings.com server directly from your browser, independent of RobTop Games.</p>
+        </div>
     </div>
 
     <script>
         const statusBox = document.getElementById("status-box");
-        
 
         function sprawdzGD() {
             statusBox.className = "status-box checking";
             statusBox.innerText = "Loading...";
-            
 
             const img = new Image();
             
@@ -118,17 +161,15 @@
                 img.onerror = null;
                 statusBox.className = "status-box offline";
                 statusBox.innerText = "Short Answer: Yes";
-                
             }, 6000);
 
             img.onload = img.onerror = function() {
                 clearTimeout(timeoutTimer);
                 statusBox.className = "status-box online";
                 statusBox.innerText = "Short Answer: No";
-                
             };
 
-            img.src = "https://boomlings.com/favicon.ico?" + Date.now();
+            img.src = "https://boomlings.com?" + Date.now();
         }
 
         window.addEventListener("DOMContentLoaded", sprawdzGD);
@@ -136,3 +177,4 @@
 
 </body>
 </html>
+
