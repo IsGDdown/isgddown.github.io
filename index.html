@@ -45,10 +45,11 @@
             min-height: 100vh;
             padding: 40px 20px;
         }
-        h1{
-        margin-right: auto;
-        margin-left: auto;
-        font-size: 10px;
+        #title {
+            margin-right: auto;
+            margin-left: auto;
+            font-size: 10px;
+            margin-bottom: 0px;
         }
 
         .card {
@@ -57,14 +58,24 @@
             max-width: 450px;
             padding: 35px 25px;
             border-radius: 20px;
+            margin-top: 30px; 
             text-align: center;
         }
 
         #h1 {
             font-size: 1.6rem;
-            margin-bottom: 100px; 
+            margin-bottom: 0px; 
             color: white;
         }
+        #tiktok {
+            
+            margin-top: -30px; 
+            margin-left: -300px;
+            
+            border-radius: 10%;
+        }
+
+        
 
         .status-box {
             padding: 25px;
@@ -124,10 +135,13 @@
     </style>
 </head>
 <body>
-    <h1> Geometry Dash Server Status </h1>
+    <h1 id="title"> Geometry Dash Server Status </h1>
+    <img src="tt.png" id="tiktok" height="40px" alt="tikok logo">
+    
     <!-- Główna karta ze statusem -->
     <div class="card">
         <img src="font.png" id="h1" height="40px" alt="Is Geometry Dash Down?">
+        
         
         <div id="status-box" class="status-box checking">
             Loading...
@@ -165,6 +179,7 @@
 
     <script>
         const statusBox = document.getElementById("status-box");
+        const tiktokbtn = document.getElementById("tiktok");
 
         async function sprawdzGD() {
     statusBox.className = "status-box checking";
@@ -190,8 +205,11 @@
         statusBox.innerText = "Unable to check";
     }
         }
-
+        function ttredirect() {
+            window.location.replace("https://www.tiktok.com/@kebabfan22")
+        }
         window.addEventListener("DOMContentLoaded", sprawdzGD);
+        tiktokbtn.addEventListener("click", ttredirect);
     </script>
 
 </body>
