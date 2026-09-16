@@ -1,6 +1,6 @@
 const VAPID_PUBLIC_KEY = "BF9QSKTYWOK9xnZVZ3o1ObEMW957nIh0mMEeLSnv9853TW-HnG9VEgslLWT8AMmI4aA7uUNwocKgTSJpuodf3Is";
 const WORKER_URL = "https://mute-tree-5cba.kebab67123.workers.dev";
-alert("Please ignore this alert.")
+
 
 function urlBase64ToUint8Array(base64String) {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
