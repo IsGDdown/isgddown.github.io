@@ -1,5 +1,17 @@
 const VAPID_PUBLIC_KEY = "BF9QSKTYWOK9xnZVZ3o1ObEMW957nIh0mMEeLSnv9853TW-HnG9VEgslLWT8AMmI4aA7uUNwocKgTSJpuodf3Is";
-const WORKER_URL = "https://mute-tree-5cba.kebab67123.workers.dev/";
+const WORKER_URL = "https://mute-tree-5cba.kebab67123.workers.dev";
+
+function urlBase64ToUint8Array(base64String) {
+  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding)
+    .replace(/-/g, "+")
+    .replace(/_/g, "/");
+
+  const rawData = atob(base64);
+  return Uint8Array.from(
+    [...rawData].map(char => char.charCodeAt(0))
+  );
+}
 
 document.getElementById("enableNotifications").addEventListener("click", async () => {
   try {
@@ -14,7 +26,7 @@ document.getElementById("enableNotifications").addEventListener("click", async (
 
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey: VAPID_PUBLIC_KEY
+      applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
     });
 
     const response = await fetch(`${WORKER_URL}/subscribe`, {
@@ -30,6 +42,7 @@ document.getElementById("enableNotifications").addEventListener("click", async (
     }
 
     alert("Notifications enabled! 🔔");
+
   } catch (error) {
     console.error(error);
     alert("Something went wrong.");
