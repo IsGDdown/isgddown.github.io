@@ -25,6 +25,8 @@ document.getElementById("enableNotifications").addEventListener("click", async (
 
     const registration = await navigator.serviceWorker.register("/sw.js");
 
+    await navigator.serviceWorker.ready;
+
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
