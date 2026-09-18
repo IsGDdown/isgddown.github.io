@@ -1,4 +1,4 @@
-const VAPID_PUBLIC_KEY = "BF9QSKTYWOK9xnZVZ3o1ObEMW957nIh0mMEeLSnv9853TW-HnG9VEgslLWT8AMmI4aA7uUNwocKgTSJpuodf3Is";
+const VAPID_PUBLIC_KEY = "BKh0j1bYF7u16zKB8PRHus-7aw9zRAMW8UwvO_5-WbDK-KyU7bMyvqrgQkRPvFT-nZ2wG_JVM-7yb1P8rumbb9c";
 const WORKER_URL = "https://mute-tree-5cba.kebab67123.workers.dev";
 
 
