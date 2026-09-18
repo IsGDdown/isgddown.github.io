@@ -9,8 +9,8 @@ self.addEventListener("push", event => {
   event.waitUntil(
     self.registration.showNotification(data.title, {
       body: data.body,
-      icon: "/Favicon.ico",
-      badge: "/Favicon.ico"
+      icon: "favicon.ico",
+      badge: "favicon.ico"
     })
   );
 });
