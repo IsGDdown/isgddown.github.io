@@ -17,12 +17,27 @@
     window.OneSignalDeferred = window.OneSignalDeferred || [];
 
     OneSignalDeferred.push(async function(OneSignal) {
-        await OneSignal.init({
-            appId: "2728e4fe-c579-4ff2-9e4a-d14a67a98c1b"
-        });
+    await OneSignal.init({
+        appId: "2728e4fe-c579-4ff2-9e4a-d14a67a98c1b",
 
-        console.log("OneSignal initialized");
+        promptOptions: {
+            slidedown: {
+                prompts: [
+                    {
+                        type: "push",
+                        autoPrompt: false
+                    }
+                ]
+            }
+        },
+
+        welcomeNotification: {
+            disable: true
+        }
     });
+
+    console.log("OneSignal initialized");
+});
 </script>
     
 
