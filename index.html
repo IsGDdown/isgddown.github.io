@@ -161,7 +161,7 @@
         </div>
 
         <p class="subtext">
-            Website checks servers of the game using direct address <strong>boomlings.com</strong>, works by loading an image in the background hidden.
+            Website checks servers of the game using direct address <strong>boomlings.com</strong>, works by checking the leaderboards.
         </p>
     </div>
 
@@ -200,7 +200,7 @@
     statusBox.innerText = "Loading...";
 
     try {
-        const response = await fetch("https://mute-tree-5cba.kebab67123.workers.dev/", {
+        const response = await fetch("https://mute-tree-5cba.kebab67123.workers.dev/status", {
             cache: "no-store"
         });
 
