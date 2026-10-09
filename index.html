@@ -13,7 +13,6 @@
     <link rel="canonical" href="https://isgddown.work.gd/">
 
     <title>isGDDown - Is Geometry Dash Down?</title>
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
@@ -126,18 +125,7 @@
             border-color: blue;
             font-size: 30px;
         }
-#info {
-            padding: 10px;
-            border-radius: 12px;
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: yellow;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-            transition: all 0.3s ease;
-            word-wrap: break-word;
-        }
+
 
         .status-box {
             padding: 25px;
@@ -162,7 +150,12 @@
         .offline {
             color: #f87171;
         }
-
+#information {
+            font-size: 0.5rem;
+            color: white;
+            margin-bottom: -15px;
+            line-height: 1.5;
+        }
         .subtext {
             font-size: 0.5rem;
             color: white;
@@ -207,10 +200,10 @@
 
 <body>
     <h1 id="title"> Geometry Dash Server Status </h1>
-    <img src="tt.png" id="tiktok" height="40px" alt="tikok logo">
+    <img src="tt.png" id="tiktok" height="40px" alt="tiktok">
     <button id="enableNotifications">🔔</button>
-    <img src="refresh.png" id="refresh" height="40px" alt="tikok logo">
-    <img src="discord.png" id="discord" height="40px" alt="tikok logo">
+    <img src="refresh.png" id="refresh" height="40px" alt="refresh">
+    <img src="discord.png" id="discord" height="40px" alt="discord">
 
 
     <script src="pushntf.js"></script>
@@ -227,7 +220,8 @@
 
     </div>
 
-<h1 id="info">Isgddown is off google because of new domain problems with sending the site to the index. Further info on discord.</h1>
+<p id="information">isGDDown checks whether Geometry Dash's online services are reachable. The tracker monitors server availability and helps players distinguish server outages from local connection problems. It is an independent, community-made tool and is not affiliated with RobTop Games.</p>
+
     <div class="faq-section">
         <h2>Frequently Asked Questions</h2>
 
@@ -252,7 +246,7 @@
 
         <div class="faq-item">
             <h3>Is this an official RobTop status checker?</h3>
-            <p>No, this is a lightweight, fan-made community tool. It checks the live status of the official boomlings.com server using backend javascript (Nerd stuff)</p>
+            <p>No, this is a lightweight, fan-made community tool. It checks the availability of Geometry Dash online services through its backend.</p>
 <br>
 
 <div class="faq-item">
