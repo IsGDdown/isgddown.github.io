@@ -31,15 +31,16 @@
 
     <!-- OneSignal: load the SDK only once -->
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-    <script>
-      window.OneSignalDeferred = window.OneSignalDeferred || [];
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "2728e4fe-c579-4ff2-9e4a-d14a67a98c1b",
+    });
+  });
+</script>
+    
 
-      OneSignalDeferred.push(async function(OneSignal) {
-        await OneSignal.init({
-          appId: "2728e4fe-c579-4ff2-9e4a-d14a67a98c1b"
-        });
-      });
-    </script>
 
     <style>
         * {
@@ -198,6 +199,18 @@
             margin-top: 10px;
             text-align: center;
         }
+        #lastoutage{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: lightgreen;
+  padding: 50px;
+  text-align: center;
+}
 
         .footer {
             margin-top: 35px;
@@ -247,8 +260,13 @@
             Loading server status...
         </div>
 
-        <p id="idk">Checking server status...</p>
+        
     </main>
+    <p id="lastoutage">
+        Checking
+    </p>
+    <br>
+    <p id="idk">Checking server status...</p>
 
     <p id="information">
         isGDDown is an independent Geometry Dash server status checker.
@@ -351,7 +369,8 @@
         const tiktokBtn = document.getElementById("tiktok");
         const discordBtn = document.getElementById("discord");
         const refreshBtn = document.getElementById("refresh");
-
+        const lastdownp = document.getElementById("lastoutage");
+        
         let isChecking = false;
 
         async function sprawdzGD() {
@@ -365,13 +384,29 @@
                 const response = await fetch(
                     "https://mute-tree-5cba.kebab67123.workers.dev/status",
                     { cache: "no-store" }
-                );
-
+                )
+                 const data = await response.json();
+                const lastdown = data.wasdown
+                console.log(lastdown)
                 if (!response.ok) {
                     throw new Error("Status request failed");
                 }
-
-                const data = await response.json();
+                if (lastdown == "unknown" || lastdown == "2026-10-11T14:06:19.215Z") {
+                    lastdownp.innerHTML = "No recorded outages yet."
+                } else {
+                    const smthdiff = new Date(lastdown)
+                    const formattedDate = new Intl.DateTimeFormat("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    hour12: false
+                }).format(smthdiff);
+                    lastdownp.innerHTML = "Last Outage Recorded: " + formattedDate;
+                }
+               
 
                 if (typeof data.online !== "boolean") {
                     throw new Error("Invalid status response");
