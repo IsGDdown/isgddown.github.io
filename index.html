@@ -20,14 +20,60 @@
     <meta property="og:type" content="website">
 
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://isgddown-now.work.gd",
+      "url": "https://isgddown-now.work.gd",
       "name": "isGDDown",
       "alternateName": "Is Geometry Dash Down?",
-      "url": "https://isgddown.work.gd/"
+      "description": "Live Geometry Dash Server Status Tracker. Check if GD online services are down or experiencing outages."
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://isgddown-now.work.gd/#webapp",
+      "url": "https://isgddown-now.work.gd",
+      "name": "isGDDown Server Status Checker",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "description": "An independent, ultra-fast community-made tool checking Geometry Dash server availability in 30ms."
+    },
+    {
+      "@type": "FAQPage",
+          "@id": "https://isgddown-now.work.gd/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I know if Geometry Dash servers are down?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If the box above displays 'Short Answer: Yes', the servers are currently unreachable. If it says 'No', the servers are up, and the issue is likely local."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why can't I connect to Geometry Dash?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Connection issues usually happen due to database maintenance, high player traffic, or local network problems. Check your internet connection if this tracker says servers are online."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why am I getting a 'Save Failed' error?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If the servers are online but you can't save your progress, your save file might be too heavy. Try deleting copyable levels, clearing your downloaded songs, and removing created levels from your list."
+              }
+            }
+          ]
     }
-    </script>
+  ]
+}
+</script>
 
     <!-- OneSignal: load the SDK only once -->
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
@@ -257,7 +303,7 @@
 
         <div id="status-box" class="status-box checking"
              role="status" aria-live="polite">
-            Loading server status...
+            Checking Geometry Dash Server Status....
         </div>
 
         
