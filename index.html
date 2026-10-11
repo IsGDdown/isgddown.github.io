@@ -16,7 +16,7 @@
 
     <meta property="og:title" content="isGDDown - Is Geometry Dash Down?">
     <meta property="og:description" content="Check the availability of Geometry Dash online services with isGDDown.">
-    <meta property="og:url" content="https://isgddown.work.gd/">
+    <meta property="og:url" content="https://isgddow-now.work.gd/">
     <meta property="og:type" content="website">
 
     <script type="application/ld+json">
@@ -75,8 +75,7 @@
 }
 </script>
 
-    <!-- OneSignal: load the SDK only once -->
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+       <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
@@ -85,6 +84,8 @@
     });
   });
 </script>
+    
+
     
 
 
@@ -258,6 +259,19 @@
   text-align: center;
 }
 
+
+.spin-once {
+  animation: rotation 1s ease-in-out;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
         .footer {
             margin-top: 35px;
             font-size: 0.8rem;
@@ -295,7 +309,6 @@
              role="link" tabindex="0">
     </nav>
 
-    <!-- Keep your existing notification code -->
     <script src="pushntf.js"></script>
 
     <main class="card">
@@ -421,7 +434,7 @@
 
         async function sprawdzGD() {
             if (isChecking) return;
-
+            refreshBtn.classList.add('spin-once');
             isChecking = true;
             statusBox.className = "status-box checking";
             statusBox.innerText = "Loading server status...";
@@ -509,7 +522,9 @@
         addKeyboardActivation(tiktokBtn, ttredirect);
         addKeyboardActivation(discordBtn, dcredirect);
         addKeyboardActivation(refreshBtn, sprawdzGD);
-
+        refreshBtn.addEventListener('animationend', () => {
+  refreshBtn.classList.remove('spin-once');
+});
         window.addEventListener("DOMContentLoaded", sprawdzGD);
     </script>
 </body>
