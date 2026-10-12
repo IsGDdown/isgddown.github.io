@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>isGDDown – Czy Geometry Dash nie działa?</title>
+    <meta name="description" content="Sprawdź, czy serwery Geometry Dash działają, czy występuje awaria. isGDDown to niezależny monitor dostępności usług online Geometry Dash.">
+    <meta name="theme-color" content="#252429">
+
+    <link rel="canonical" href="https://isgddown-now.work.gd/pl/">
+
+    <link rel="alternate" hreflang="en" href="https://isgddown-now.work.gd/">
+    <link rel="alternate" hreflang="pl" href="https://isgddown-now.work.gd/pl/">
+    <link rel="alternate" hreflang="es" href="https://isgddown-now.work.gd/es/">
+    <link rel="alternate" hreflang="x-default" href="https://isgddown-now.work.gd/">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <meta property="og:title" content="isGDDown – Czy Geometry Dash nie działa?">
+    <meta property="og:description" content="Sprawdź dostępność serwerów Geometry Dash za pomocą isGDDown.">
+    <meta property="og:url" content="https://isgddown-now.work.gd/pl/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pl_PL">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://isgddown-now.work.gd/pl/#website",
+          "url": "https://isgddown-now.work.gd/pl/",
+          "name": "isGDDown",
+          "alternateName": "Czy Geometry Dash nie działa?",
+          "description": "Niezależny monitor dostępności serwerów Geometry Dash.",
+          "inLanguage": "pl"
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://isgddown-now.work.gd/pl/#webapp",
+          "url": "https://isgddown-now.work.gd/pl/",
+          "name": "isGDDown",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "description": "Niezależne narzędzie do sprawdzania dostępności wybranych usług online Geometry Dash.",
+          "inLanguage": "pl"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://isgddown-now.work.gd/pl/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Jak sprawdzić, czy serwery Geometry Dash nie działają?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Jeśli status pokazuje Krótka odpowiedź: Tak, monitorowane przez isGDDown usługi mogą być niedostępne. Jeśli pokazuje Krótka odpowiedź: Nie, testowane usługi odpowiadają. Nie oznacza to jednak, że wszystkie funkcje online działają prawidłowo."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Jak isGDDown sprawdza stan serwerów?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Strona pobiera raport statusu z własnego serwera, który sprawdza dostępność wybranych usług online Geometry Dash, w tym połączenie z Boomlings i dostępność tabeli wyników."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Dlaczego nie mogę połączyć się z Geometry Dash?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Problemy z połączeniem mogą wynikać z awarii serwera, problemów z internetem lub niedostępności konkretnej usługi. Jeśli testy isGDDown działają poprawnie, sprawdź swoje połączenie i spróbuj ponownie później."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Dlaczego pojawia się błąd Error al guardar lub Save Failed?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Błąd zapisywania nie musi oznaczać, że wszystkie serwery Geometry Dash są niedostępne. Sprawdź połączenie z internetem, a jeśli problem się utrzymuje, skontaktuj się z pomocą techniczną Geometry Dash."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Czy isGDDown jest oficjalnym narzędziem RobTop?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nie. isGDDown to niezależny projekt fanowski, który nie jest powiązany z RobTop Games ani przez tę firmę wspierany."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.init({
+          appId: "2728e4fe-c579-4ff2-9e4a-d14a67a98c1b"
+        });
+      });
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #252429;
+            background-image: url("../bgimg.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, sans-serif;
+            min-height: 100vh;
+            padding: 30px 20px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #title {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .toolbar {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .toolbar img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            cursor: pointer;
+        }
+
+        #enableNotifications {
+            width: 48px;
+            height: 48px;
+            border: 1px solid blue;
+            border-radius: 12px;
+            background-color: blue;
+            color: white;
+            font-size: 27px;
+            cursor: pointer;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 450px;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        #h1 {
+            max-width: 100%;
+            height: 40px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .status-box {
+            padding: 25px 12px;
+            border-radius: 12px;
+            font-size: 1.35rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            overflow-wrap: anywhere;
+        }
+
+        .checking { color: #cbd5e1; }
+        .online { color: #4ade80; }
+        .offline { color: #f87171; }
+
+        #idk {
+            color: #d1d5db;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        #information {
+            width: 100%;
+            max-width: 650px;
+            color: white;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .faq-section {
+            width: 100%;
+            max-width: 650px;
+            margin-top: 45px;
+            text-align: left;
+        }
+
+        .faq-section h2 {
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 24px;
+        }
+
+        .faq-item h3 {
+            font-size: 1rem;
+            color: white;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: #eeeeee;
+            line-height: 1.7;
+        }
+
+        .faq-item a {
+            color: #93c5fd;
+            overflow-wrap: anywhere;
+        }
+
+        .subtext {
+            width: 100%;
+            max-width: 650px;
+            color: #d1d5db;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #lastoutage {
+            width: 100%;
+            max-width: 650px;
+            border: 5px solid gray;
+            letter-spacing: 1px;
+            font-weight: bolder;
+            border-radius: 10px;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            margin: 20px auto;
+            color: lightgreen;
+            padding: 30px 15px;
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        .spin-once {
+            animation: rotation 1s ease-in-out;
+        }
+
+        .language-switcher {
+            position: relative;
+            display: inline-block;
+            font-family: inherit;
+            margin-top: 12px;
+        }
+
+        .language-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            color: #fff;
+            background: #302f36;
+            border: 1px solid #48464f;
+            border-radius: 10px;
+            cursor: pointer;
+            font: inherit;
+            transition: background 0.2s ease;
+        }
+
+        .language-button:hover {
+            background: #403e48;
+        }
+
+        .language-arrow {
+            margin-left: 4px;
+            transition: transform 0.2s ease;
+        }
+
+        .language-button[aria-expanded="true"] .language-arrow {
+            transform: rotate(180deg);
+        }
+
+        .language-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            min-width: 155px;
+            padding: 5px;
+            background: #302f36;
+            border: 1px solid #48464f;
+            border-radius: 10px;
+            box-shadow: 0 8px 24px #0005;
+            z-index: 1000;
+        }
+
+        .language-menu[hidden] {
+            display: none;
+        }
+
+        .language-menu a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 7px;
+            white-space: nowrap;
+        }
+
+        .language-menu a:hover,
+        .language-menu a:focus-visible {
+            background: #48464f;
+            outline: none;
+        }
+
+        @keyframes rotation {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .footer {
+            margin-top: 35px;
+            font-size: 0.8rem;
+            color: #d1d5db;
+            text-align: center;
+        }
+
+        @media (max-width: 400px) {
+            body {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .status-box { font-size: 1.1rem; }
+            #lastoutage { font-size: 1rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">Status serwerów Geometry Dash</h1>
+
+    <nav class="toolbar" aria-label="Akcje strony">
+        <img src="../tt.png" id="tiktok"
+             alt="Odwiedź isGDDown na TikToku"
+             role="link" tabindex="0">
+
+        <button id="enableNotifications" type="button"
+                aria-label="Włącz powiadomienia">🔔</button>
+
+        <img src="../refresh.png" id="refresh"
+             alt="Odśwież status serwerów"
+             role="button" tabindex="0">
+
+        <img src="../discord.png" id="discord"
+             alt="Dołącz do Discorda isGDDown"
+             role="link" tabindex="0">
+    </nav>
+
+    <script src="pushntf.js"></script>
+
+    <main class="card">
+        <img src="../font.png" id="h1"
+             alt="Czy Geometry Dash nie działa?">
+
+        <div id="status-box" class="status-box checking"
+             role="status" aria-live="polite">
+            Sprawdzanie statusu serwerów Geometry Dash...
+        </div>
+
+        <div class="language-switcher">
+            <button class="language-button"
+                    id="languageButton"
+                    aria-expanded="false"
+                    aria-controls="languageMenu"
+                    type="button">
+                🇵🇱 <span id="currentLanguage">Polski</span>
+                <span class="language-arrow">⌄</span>
+            </button>
+
+            <div class="language-menu" id="languageMenu" hidden>
+                <a href="/" lang="en">🇬🇧 English</a>
+                <a href="/pl/" lang="pl" aria-current="page">🇵🇱 Polski</a>
+                <a href="/es/" lang="es">🇪🇸 Español</a>
+            </div>
+        </div>
+    </main>
+
+    <p id="lastoutage">
+        Wczytywanie historii awarii...
+    </p>
+
+    <p id="idk">Sprawdzanie statusu serwerów...</p>
+
+    <p id="information">
+        isGDDown to niezależne narzędzie do sprawdzania statusu serwerów
+        Geometry Dash. Wykorzystuje własny system do weryfikacji dostępności
+        wybranych usług online i pomaga graczom diagnozować problemy
+        z połączeniem. Projekt społecznościowy nie jest powiązany z RobTop Games.
+    </p>
+
+    <section class="faq-section" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Najczęściej zadawane pytania</h2>
+
+        <article class="faq-item">
+            <h3>Jak sprawdzić, czy serwery Geometry Dash nie działają?</h3>
+            <p>
+                Jeśli status pokazuje „Krótka odpowiedź: Tak”, monitorowane
+                przez isGDDown usługi mogą być niedostępne. Jeśli pokazuje
+                „Krótka odpowiedź: Nie”, testowane usługi odpowiadają.
+                Nie oznacza to jednak, że wszystkie funkcje online działają prawidłowo.
+            </p>
+        </article>
+
+        <article class="faq-item">
+            <h3>Jak isGDDown sprawdza stan serwerów?</h3>
+            <p>
+                Strona pobiera raport statusu z własnego serwera, który sprawdza
+                dostępność wybranych usług online Geometry Dash, w tym połączenie
+                z Boomlings i dostępność tabeli wyników. Wynik nie pochodzi
+                z oficjalnego systemu statusu RobTop Games.
+            </p>
+        </article>
+
+        <article class="faq-item">
+            <h3>Dlaczego nie mogę połączyć się z Geometry Dash?</h3>
+            <p>
+                Problemy z połączeniem mogą wynikać z awarii serwera, problemów
+                z internetem lub niedostępności konkretnej usługi online.
+                Jeśli testy isGDDown działają poprawnie, sprawdź swoje połączenie
+                i spróbuj ponownie później.
+            </p>
+        </article>
+
+        <article class="faq-item">
+            <h3>Dlaczego pojawia się błąd „Save Failed”?</h3>
+            <p>
+                Błąd zapisywania nie musi oznaczać, że wszystkie serwery
+                Geometry Dash są niedostępne. Sprawdź połączenie z internetem,
+                a jeśli problem się utrzymuje, skontaktuj się z pomocą techniczną
+                Geometry Dash.
+            </p>
+        </article>
+
+        <article class="faq-item">
+            <h3>Czy isGDDown jest oficjalnym narzędziem RobTop?</h3>
+            <p>
+                Nie. isGDDown to niezależny projekt fanowski, który nie jest
+                powiązany z RobTop Games ani przez tę firmę wspierany.
+            </p>
+        </article>
+
+        <article class="faq-item">
+            <h3>Kto stworzył i utrzymuje tę stronę?</h3>
+            <p>
+                Strona została stworzona i jest utrzymywana przez KebabFan.
+            </p>
+        </article>
+
+        <article class="faq-item">
+            <h3>Jak skontaktować się z twórcą?</h3>
+            <p>
+                Możesz skontaktować się z twórcą przez e-mail:
+                <a href="mailto:isgddown@zohomail.eu">isgddown@zohomail.eu</a>.
+            </p>
+        </article>
+
+        <article class="faq-item">
+            <h3>Czy mogę skopiować tę stronę i przedstawić ją jako własną?</h3>
+            <p>
+                Szanuj pracę twórcy i nie kopiuj treści, przedstawiając je jako
+                własne. Jeśli korzystasz z isGDDown, umieść link do oryginalnej strony.
+            </p>
+        </article>
+    </section>
+
+    <p class="subtext">
+        isGDDown sprawdza wybrane usługi online za pomocą własnego systemu.
+        Wyniki są niezależnymi szacunkami i mogą nie odzwierciedlać stanu
+        wszystkich funkcji Geometry Dash.
+    </p>
+
+    <footer class="footer">
+        isGDDown – niezależny monitor statusu serwerów Geometry Dash.
+    </footer>
+
+    <script>
+        const statusBox = document.getElementById("status-box");
+        const date = document.getElementById("idk");
+        const tiktokBtn = document.getElementById("tiktok");
+        const discordBtn = document.getElementById("discord");
+        const refreshBtn = document.getElementById("refresh");
+        const lastdownp = document.getElementById("lastoutage");
+
+        let isChecking = false;
+
+        async function sprawdzGD() {
+            if (isChecking) return;
+
+            isChecking = true;
+            refreshBtn.classList.add("spin-once");
+
+            statusBox.className = "status-box checking";
+            statusBox.textContent = "Sprawdzanie statusu serwerów...";
+
+            try {
+                const response = await fetch(
+                    "https://mute-tree-5cba.kebab67123.workers.dev/status",
+                    { cache: "no-store" }
+                );
+
+                if (!response.ok) {
+                    throw new Error("Status request failed");
+                }
+
+                const data = await response.json();
+
+                if (typeof data.online !== "boolean") {
+                    throw new Error("Invalid status response");
+                }
+
+                const lastdown = data.wasdown;
+
+                if (
+                    !lastdown ||
+                    lastdown === "unknown" ||
+                    lastdown === "2026-10-11T14:06:19.215Z"
+                ) {
+                    lastdownp.textContent =
+                        "Nie odnotowano jeszcze awarii.";
+                } else {
+                    const outageDate = new Date(lastdown);
+
+                    if (Number.isNaN(outageDate.getTime())) {
+                        lastdownp.textContent =
+                            "Nie udało się ustalić daty ostatniej awarii.";
+                    } else {
+                        const formattedOutageDate =
+                            new Intl.DateTimeFormat("pl-PL", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                                hour: "2-digit",
+                                minute: "2-digit",
+                                second: "2-digit",
+                                hour12: false
+                            }).format(outageDate);
+
+                        lastdownp.textContent =
+                            "Ostatnia zarejestrowana awaria: " +
+                            formattedOutageDate;
+                    }
+                }
+
+                const now = new Date();
+
+                const formattedDate = new Intl.DateTimeFormat("pl-PL", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    hour12: false
+                }).format(now);
+
+                date.textContent = "Ostatnie sprawdzenie: " + formattedDate;
+
+                if (data.online) {
+                    statusBox.className = "status-box online";
+                    statusBox.textContent = "Krótka odpowiedź: Nie";
+                } else {
+                    statusBox.className = "status-box offline";
+                    statusBox.textContent = "Krótka odpowiedź: Tak";
+                }
+            } catch (error) {
+                console.error("Błąd sprawdzania statusu:", error);
+
+                statusBox.className = "status-box checking";
+                statusBox.textContent =
+                    "Nie udało się sprawdzić statusu serwerów.";
+
+                date.textContent =
+                    "Nie udało się ukończyć sprawdzania.";
+            } finally {
+                isChecking = false;
+            }
+        }
+
+        function ttredirect() {
+            window.location.href = "https://www.tiktok.com/@kebabfan22";
+        }
+
+        function dcredirect() {
+            window.location.href = "https://discord.gg/RMeKXr25M";
+        }
+
+        function addKeyboardActivation(element, action) {
+            element.addEventListener("click", action);
+
+            element.addEventListener("keydown", function(event) {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    action();
+                }
+            });
+        }
+
+        addKeyboardActivation(tiktokBtn, ttredirect);
+        addKeyboardActivation(discordBtn, dcredirect);
+        addKeyboardActivation(refreshBtn, sprawdzGD);
+
+        refreshBtn.addEventListener("animationend", () => {
+            refreshBtn.classList.remove("spin-once");
+        });
+
+        sprawdzGD();
+
+        const languageButton =
+            document.getElementById("languageButton");
+        const languageMenu =
+            document.getElementById("languageMenu");
+
+        languageButton.addEventListener("click", () => {
+            const isOpen =
+                languageButton.getAttribute("aria-expanded") === "true";
+
+            languageButton.setAttribute(
+                "aria-expanded",
+                String(!isOpen)
+            );
+
+            languageMenu.hidden = isOpen;
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".language-switcher")) {
+                languageMenu.hidden = true;
+                languageButton.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                languageMenu.hidden = true;
+                languageButton.setAttribute("aria-expanded", "false");
+                languageButton.focus();
+            }
+        });
+    </script>
+</body>
+</html>
