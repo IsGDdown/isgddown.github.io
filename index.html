@@ -237,6 +237,71 @@
             overflow-wrap: anywhere;
         }
 
+.language-switcher {
+  position: relative;
+  display: inline-block;
+  font-family: inherit;
+}
+
+.language-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  color: #fff;
+  background: #302f36;
+  border: 1px solid #48464f;
+  border-radius: 10px;
+  cursor: pointer;
+  font: inherit;
+  transition: background 0.2s ease;
+}
+
+.language-button:hover {
+  background: #403e48;
+}
+
+.language-arrow {
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+
+.language-button[aria-expanded="true"] .language-arrow {
+  transform: rotate(180deg);
+}
+
+.language-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 155px;
+  padding: 5px;
+  background: #302f36;
+  border: 1px solid #48464f;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px #0005;
+  z-index: 1000;
+}
+
+.language-menu[hidden] {
+  display: none;
+}
+
+.language-menu a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 7px;
+  white-space: nowrap;
+}
+
+.language-menu a:hover,
+.language-menu a:focus-visible {
+  background: #48464f;
+  outline: none;
+}
+
         .subtext {
             width: 100%;
             max-width: 650px;
@@ -319,7 +384,24 @@
             Checking Geometry Dash Server Status....
         </div>
 
-        
+        <div class="language-switcher">
+  <button
+    class="language-button"
+    id="languageButton"
+    aria-expanded="false"
+    aria-controls="languageMenu"
+    type="button"
+  >
+    🌐 <span id="currentLanguage">English</span>
+    <span class="language-arrow">⌄</span>
+  </button>
+
+  <div class="language-menu" id="languageMenu" hidden>
+    <a href="/" data-lang="en">🇬🇧 English</a>
+    <a href="/pl/" data-lang="pl">🇵🇱 Polski</a>
+    <a href="/es/" data-lang="es">🇪🇸 Español</a>
+  </div>
+</div>
     </main>
     <p id="lastoutage">
     Loading live tracker... Our system continuously records all Geometry Dash server downtime and history.
@@ -527,6 +609,49 @@
   refreshBtn.classList.remove('spin-once');
 });
         window.addEventListener("DOMContentLoaded", sprawdzGD);
+
+const languageButton = document.getElementById("languageButton");
+const languageMenu = document.getElementById("languageMenu");
+const currentLanguage = document.getElementById("currentLanguage");
+
+const languages = {
+  en: "English",
+  pl: "Polski",
+  es: "Español"
+};
+
+const currentPath = window.location.pathname;
+const currentCode = currentPath.startsWith("/pl/")
+  ? "pl"
+  : currentPath.startsWith("/es/")
+    ? "es"
+    : "en";
+
+currentLanguage.textContent = languages[currentCode];
+
+languageButton.addEventListener("click", () => {
+  const isOpen =
+    languageButton.getAttribute("aria-expanded") === "true";
+
+  languageButton.setAttribute("aria-expanded", String(!isOpen));
+  languageMenu.hidden = isOpen;
+});
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".language-switcher")) {
+    languageMenu.hidden = true;
+    languageButton.setAttribute("aria-expanded", "false");
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    languageMenu.hidden = true;
+    languageButton.setAttribute("aria-expanded", "false");
+    languageButton.focus();
+  }
+});
+
     </script>
 </body>
 </html>
