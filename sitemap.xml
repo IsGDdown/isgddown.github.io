@@ -1,17 +1,42 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://isgddown-now.work.gd/</loc>
+    <xhtml:link rel="alternate" hreflang="en"
+      href="https://isgddown-now.work.gd/" />
+    <xhtml:link rel="alternate" hreflang="pl"
+      href="https://isgddown-now.work.gd/pl/" />
+    <xhtml:link rel="alternate" hreflang="es"
+      href="https://isgddown-now.work.gd/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default"
+      href="https://isgddown-now.work.gd/" />
+  </url>
 
-   <url>
+  <url>
+    <loc>https://isgddown-now.work.gd/pl/</loc>
+    <xhtml:link rel="alternate" hreflang="en"
+      href="https://isgddown-now.work.gd/" />
+    <xhtml:link rel="alternate" hreflang="pl"
+      href="https://isgddown-now.work.gd/pl/" />
+    <xhtml:link rel="alternate" hreflang="es"
+      href="https://isgddown-now.work.gd/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default"
+      href="https://isgddown-now.work.gd/" />
+  </url>
 
-      <loc>https://isgddown-now.work.gd</loc>
+  <url>
+    <loc>https://isgddown-now.work.gd/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en"
+      href="https://isgddown-now.work.gd/" />
+    <xhtml:link rel="alternate" hreflang="pl"
+      href="https://isgddown-now.work.gd/pl/" />
+    <xhtml:link rel="alternate" hreflang="es"
+      href="https://isgddown-now.work.gd/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default"
+      href="https://isgddown-now.work.gd/" />
+  </url>
 
-      <lastmod>2026-10-12</lastmod>
-
-      <changefreq>daily</changefreq>
-
-      <priority>1.0</priority>
-
-   </url>
-
-</urlset> 
+</urlset>
