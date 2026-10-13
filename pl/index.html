@@ -630,7 +630,7 @@
                
                 const now = new Date();
 
-                const formattedDate = new Intl.DateTimeFormat("es-ES", {
+                const formattedDate = new Intl.DateTimeFormat("pl-PL", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
@@ -640,7 +640,7 @@
                     hour12: false
                 }).format(now);
 
-                date.innerHTML = "Consultado por última vez en: " + formattedDate;
+                date.innerHTML = "Sprawdzono: " + formattedDate;
 
                 if (data.online) {
                     
