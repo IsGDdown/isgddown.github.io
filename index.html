@@ -16,7 +16,7 @@
 
     <meta property="og:title" content="isGDDown - Is Geometry Dash Down?">
     <meta property="og:description" content="Check the availability of Geometry Dash online services with isGDDown.">
-    <meta property="og:url" content="https://isgddown.work.gd/">
+    <meta property="og:url" content="https://isgddow-now.work.gd/">
     <meta property="og:type" content="website">
 
     <script type="application/ld+json">
@@ -50,7 +50,7 @@
               "name": "How do I know if Geometry Dash servers are down?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "If the box above displays 'Short Answer: Yes', the servers are currently unreachable. If it says 'No', the servers are up, and the issue is likely local."
+                "text": "Above there are couple of tests, if all tests are returning as operational, Geometry dash is fully working, if 2-4 tests came back as positive, its partially down, if everything is not operational its fully down. Tests are listed above"
               }
             },
             {
@@ -190,6 +190,11 @@
             font-size: 0.8rem;
             line-height: 1.5;
         }
+        #wow {
+            color: white;
+            font-size:2.0rem;
+            line-height: 1.5;
+        }
 
         #information {
             width: 100%;
@@ -237,6 +242,75 @@
             overflow-wrap: anywhere;
         }
 
+        .subtext {
+            width: 100%;
+            max-width: 650px;
+            color: #d1d5db;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            margin-top: 10px;
+            text-align: center;
+        }
+        #lvlcheck{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+#acccheck{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+#leaderboardcheck{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+#commentcheck{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+#lvlsearch{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
 .language-switcher {
   position: relative;
   display: inline-block;
@@ -301,30 +375,6 @@
   background: #48464f;
   outline: none;
 }
-
-        .subtext {
-            width: 100%;
-            max-width: 650px;
-            color: #d1d5db;
-            font-size: 0.8rem;
-            line-height: 1.6;
-            margin-top: 10px;
-            text-align: center;
-        }
-        #lastoutage{
-  border: 5px solid gray;
-  letter-spacing: 1px;
-  font-weight: bolder;
-  border-radius: 10px;
-  font-size: 1.35rem;
-  text-transform: uppercase;
-  margin: auto;  
-  color: lightgreen;
-  padding: 50px;
-  text-align: center;
-}
-
-
 .spin-once {
   animation: rotation 1s ease-in-out;
 }
@@ -372,6 +422,21 @@
 
         <img src="discord.png" id="discord" alt="Join the isGDDown Discord"
              role="link" tabindex="0">
+             <div class="language-switcher">
+            <button class="language-button"
+                    id="languageButton"
+                    aria-expanded="false"
+                    aria-controls="languageMenu"
+                    type="button">
+                🇬🇧<span id="currentLanguage">English</span>
+                <span class="language-arrow">⌄</span>
+            </button>
+
+            <div class="language-menu" id="languageMenu" hidden>
+                <a href="/" lang="en">🇬🇧 English</a>
+                <a href="/pl/" lang="pl">🇵🇱 Polski</a>
+                <a href="/es/" lang="es" aria-current="page">🇪🇸 Español</a>
+            </div>
     </nav>
 
     <script src="pushntf.js"></script>
@@ -383,30 +448,23 @@
              role="status" aria-live="polite">
             Checking Geometry Dash Server Status....
         </div>
-
-        <div class="language-switcher">
-  <button
-    class="language-button"
-    id="languageButton"
-    aria-expanded="false"
-    aria-controls="languageMenu"
-    type="button"
-  >
-    🌐 <span id="currentLanguage">English</span>
-    <span class="language-arrow">⌄</span>
-  </button>
-
-  <div class="language-menu" id="languageMenu" hidden>
-    <a href="/" data-lang="en">🇬🇧 English</a>
-    <a href="/pl/" data-lang="pl">🇵🇱 Polski</a>
-    <a href="/es/" data-lang="es">🇪🇸 Español</a>
-  </div>
-</div>
+        
+        
     </main>
-    <p id="lastoutage">
-    Loading live tracker... Our system continuously records all Geometry Dash server downtime and history.
-</p>
-
+    <p id="lvlcheck">
+        Checking Level Download Status...
+    </p><br><p id="acccheck">
+        Checking Account Searching Status...
+    </p><br>
+    </p><p id="lvlsearch">
+        Checking Level Searching...
+    </p><br>
+    </p><p id="leaderboardcheck">
+        Checking Leaderboards...
+    </p><br>
+    </p><p id="commentcheck">
+        Checking The Comment Section...
+    </p>
     <br>
     <p id="idk">Checking server status...</p>
 
@@ -423,11 +481,8 @@
         <article class="faq-item">
             <h3>How do I know if Geometry Dash servers are down?</h3>
             <p>
-                If the status displays "Short Answer: Yes", the services
-                monitored by isGDDown appear to be unavailable. If it displays
-                "Short Answer: No", the checks indicate that they are reachable.
-                This does not guarantee that every online feature is working.
-            </p>
+                Above there are couple of tests, if all tests are returning as operational, Geometry dash is fully working, if 2-4 tests came back as positive, its partially down, if everything is not operational its fully down. Tests are listed above
+            </p>     
         </article>
 
         <article class="faq-item">
@@ -506,54 +561,52 @@
     </footer>
 
     <script>
+        let Report = 0;
         const statusBox = document.getElementById("status-box");
         const date = document.getElementById("idk");
         const tiktokBtn = document.getElementById("tiktok");
         const discordBtn = document.getElementById("discord");
         const refreshBtn = document.getElementById("refresh");
-        const lastdownp = document.getElementById("lastoutage");
+        const lvlcheck = document.getElementById("lvlcheck");
+        const commentcheck = document.getElementById("commentcheck");
+        const leaderboardcheck = document.getElementById("leaderboardcheck");
+        const lvlsearch = document.getElementById("lvlsearch")
+
         
         let isChecking = false;
 
         async function sprawdzGD() {
             if (isChecking) return;
+            lvlcheck.innerHTML = "Checking Level Download Status...";
+            acccheck.innerHTML = "Checking Account Searching Status...";
+            lvlsearch.innerHTML = "Level Searching Status...";
+            commentcheck.innerHTML = "Checking The Comment Section Status...";
+            leaderboardcheck.innerHTML = "Checking The Leaderboard Status...";
+
+            lvlcheck.style.color = "gray";
+            acccheck.style.color = "gray";
+            lvlsearch.style.color = "gray";
+            leaderboardcheck.style.color = "gray";
+            commentcheck.style.color = "gray";
+
             refreshBtn.classList.add('spin-once');
             isChecking = true;
             statusBox.className = "status-box checking";
             statusBox.innerText = "Loading server status...";
-
+            statusBox.style.color = "gray";
+            Report = 0;
             try {
                 const response = await fetch(
                     "https://mute-tree-5cba.kebab67123.workers.dev/status",
                     { cache: "no-store" }
                 )
                  const data = await response.json();
-                const lastdown = data.wasdown
-                console.log(lastdown)
+                
+                
                 if (!response.ok) {
                     throw new Error("Status request failed");
                 }
-                if (lastdown == "unknown" || lastdown == "2026-10-11T14:06:19.215Z") {
-                    lastdownp.innerHTML = "No recorded outages yet."
-                } else {
-                    const smthdiff = new Date(lastdown)
-                    const formattedDate = new Intl.DateTimeFormat("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    second: "2-digit",
-                    hour12: false
-                }).format(smthdiff);
-                    lastdownp.innerHTML = "Last Outage Recorded: " + formattedDate;
-                }
                
-
-                if (typeof data.online !== "boolean") {
-                    throw new Error("Invalid status response");
-                }
-
                 const now = new Date();
 
                 const formattedDate = new Intl.DateTimeFormat("en-US", {
@@ -569,19 +622,124 @@
                 date.textContent = "Last checked at: " + formattedDate;
 
                 if (data.online) {
-                    statusBox.className = "status-box online";
-                    statusBox.innerText = "Short Answer: No";
+                    
+                    leaderboardcheck.innerHTML = "Leaderboards are Operational!";
+                    leaderboardcheck.style.color = "lightgreen";
+                    Report += 1;
+                    console.log("Leaderboard")
+        
                 } else {
-                    statusBox.className = "status-box offline";
-                    statusBox.innerText = "Short Answer: Yes";
+                    
+                    leaderboardcheck.innerHTML = "Leaderboards are Operational!";
+                    leaderboardcheck.style.color = "red";
                 }
+
             } catch (error) {
                 statusBox.className = "status-box checking";
                 statusBox.innerText = "Unable to check server status";
+                leaderboardcheck.innerHTML = "Unable to check leaderboards!";
+                leaderboardcheck.style.color = "red";
+                console.log(error);
+
             } finally {
                 isChecking = false;
             }
+        try{
+                const response = await fetch(
+                    "https://mute-tree-5cba.kebab67123.workers.dev/level",
+                    { cache: "no-store" }
+                )
+
+                const data = await response.json();
+                if (data.online) {
+                    lvlsearch.style.color = "lightgreen";
+                    lvlsearch.innerHTML = "Level Download Is Operational!"
+                    Report += 1;
+                    console.log("level")
+                } else {
+                    lvlsearch.style.color = "red";
+                    lvlsearch.innerHTML = "Level Download Doesnt Work!"
+                }
+            } finally {
+                console.log("");
+            }
+            try{
+                const response = await fetch(
+                    "https://mute-tree-5cba.kebab67123.workers.dev/search",
+                    { cache: "no-store" }
+                )
+
+                const data = await response.json();
+                if (data.online) {
+                    lvlcheck.style.color = "lightgreen";
+                    lvlcheck.innerHTML = "Level Searching Is Operational!"
+                    Report += 1;
+                    console.log("level")
+                } else {
+                    lvlcheck.style.color = "red";
+                    lvlcheck.innerHTML = "Level Search Doesnt Work!"
+                }
+            } finally {
+                console.log("");
+            }
+        try{
+                const response = await fetch(
+                    "https://mute-tree-5cba.kebab67123.workers.dev/comments",
+                    { cache: "no-store" }
+                )
+
+                const data = await response.json();
+                if (data.online) {
+                    commentcheck.style.color = "lightgreen";
+                    commentcheck.innerHTML = "Comments Are Operational!"
+                    Report += 1;
+                    console.log("comment")
+                } else {
+                    lvlcheck.style.color = "red";
+                    lvlcheck.innerHTML = "Comments Doesnt Work!"
+                }
+            } finally {
+                console.log("");
+            }
+            
+        
+        
+            try{
+                const response = await fetch(
+                    "https://mute-tree-5cba.kebab67123.workers.dev/account",
+                    { cache: "no-store" }
+                )
+
+                const data = await response.json();
+                if (data.online) {
+                    acccheck.style.color = "lightgreen";
+                    acccheck.innerHTML = "Account Search Is Operational!"
+                    Report += 1;
+                } else {
+                    acccheck.style.color = "red";
+                    acccheck.innerHTML = "Account Searching Doesnt Work!"
+                }
+            } finally {
+                console.log("");
+            }
+            console.log(Report);
+            if (Report == 0){
+                statusBox.className = "status-box offline";
+                statusBox.innerText = "🔴 Geometry Dash Is Down!";
+            }
+            if (Report == 1 || Report == 2 || Report == 3){
+                statusBox.className = "status-box offline";
+                statusBox.style.color = "orange";
+                statusBox.innerText = "🟠 Geometry Dash Is Partially Down!";
+            }
+            if (Report == 4 || Report == 5) {
+                statusBox.className = "status-box online";
+                statusBox.style.color = "lightgreen";
+                statusBox.innerText = "🟢 Geometry Dash Is Operational!";
+            }
         }
+        
+
 
         function ttredirect() {
             window.location.href = "https://www.tiktok.com/@kebabfan22";
@@ -609,49 +767,39 @@
   refreshBtn.classList.remove('spin-once');
 });
         window.addEventListener("DOMContentLoaded", sprawdzGD);
+        
+        
+const languageButton =
+            document.getElementById("languageButton");
+        const languageMenu =
+            document.getElementById("languageMenu");
 
-const languageButton = document.getElementById("languageButton");
-const languageMenu = document.getElementById("languageMenu");
-const currentLanguage = document.getElementById("currentLanguage");
+        languageButton.addEventListener("click", () => {
+            const isOpen =
+                languageButton.getAttribute("aria-expanded") === "true";
 
-const languages = {
-  en: "English",
-  pl: "Polski",
-  es: "Español"
-};
+            languageButton.setAttribute(
+                "aria-expanded",
+                String(!isOpen)
+            );
 
-const currentPath = window.location.pathname;
-const currentCode = currentPath.startsWith("/pl/")
-  ? "pl"
-  : currentPath.startsWith("/es/")
-    ? "es"
-    : "en";
+            languageMenu.hidden = isOpen;
+        });
 
-currentLanguage.textContent = languages[currentCode];
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".language-switcher")) {
+                languageMenu.hidden = true;
+                languageButton.setAttribute("aria-expanded", "false");
+            }
+        });
 
-languageButton.addEventListener("click", () => {
-  const isOpen =
-    languageButton.getAttribute("aria-expanded") === "true";
-
-  languageButton.setAttribute("aria-expanded", String(!isOpen));
-  languageMenu.hidden = isOpen;
-});
-
-document.addEventListener("click", (event) => {
-  if (!event.target.closest(".language-switcher")) {
-    languageMenu.hidden = true;
-    languageButton.setAttribute("aria-expanded", "false");
-  }
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    languageMenu.hidden = true;
-    languageButton.setAttribute("aria-expanded", "false");
-    languageButton.focus();
-  }
-});
-
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                languageMenu.hidden = true;
+                languageButton.setAttribute("aria-expanded", "false");
+                languageButton.focus();
+            }
+        });
     </script>
 </body>
 </html>

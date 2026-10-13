@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -58,7 +57,7 @@
               "name": "¿Cómo puedo saber si los servidores de Geometry Dash no están disponibles?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Si el estado muestra Respuesta corta: Sí, los servicios monitorizados por isGDDown parecen no estar disponibles. Si muestra Respuesta corta: No, las comprobaciones indican que son accesibles. Esto no garantiza que todas las funciones en línea estén operativas."
+                "text": " Arriba hay varias pruebas. Si todas las pruebas indican que el juego funciona, «Geometry Dash» funciona plenamente; si entre 2 y 4 pruebas han dado resultado positivo, el juego funciona parcialmente; si ninguna de las funciones funciona, el juego no está disponible en absoluto. La lista de pruebas se encuentra más arriba."
               }
             },
             {
@@ -209,7 +208,11 @@
             color: #d1d5db;
             font-size: 0.8rem;
             line-height: 1.5;
-            text-align: center;
+        }
+        #wow {
+            color: white;
+            font-size:2.0rem;
+            line-height: 1.5;
         }
 
         #information {
@@ -267,102 +270,142 @@
             margin-top: 10px;
             text-align: center;
         }
+        #lvlcheck{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+#acccheck{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+#leaderboardcheck{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+#commentcheck{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+#lvlsearch{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+.language-switcher {
+  position: relative;
+  display: inline-block;
+  font-family: inherit;
+}
 
-        #lastoutage {
-            width: 100%;
-            max-width: 650px;
-            border: 5px solid gray;
-            letter-spacing: 1px;
-            font-weight: bolder;
-            border-radius: 10px;
-            font-size: 1.15rem;
-            text-transform: uppercase;
-            margin: 20px auto;
-            color: lightgreen;
-            padding: 30px 15px;
-            text-align: center;
-            overflow-wrap: anywhere;
-        }
+.language-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  color: #fff;
+  background: #302f36;
+  border: 1px solid #48464f;
+  border-radius: 10px;
+  cursor: pointer;
+  font: inherit;
+  transition: background 0.2s ease;
+}
 
-        .spin-once {
-            animation: rotation 1s ease-in-out;
-        }
+.language-button:hover {
+  background: #403e48;
+}
 
-        .language-switcher {
-            position: relative;
-            display: inline-block;
-            font-family: inherit;
-            margin-top: 12px;
-        }
+.language-arrow {
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
 
-        .language-button {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 14px;
-            color: #fff;
-            background: #302f36;
-            border: 1px solid #48464f;
-            border-radius: 10px;
-            cursor: pointer;
-            font: inherit;
-            transition: background 0.2s ease;
-        }
+.language-button[aria-expanded="true"] .language-arrow {
+  transform: rotate(180deg);
+}
 
-        .language-button:hover {
-            background: #403e48;
-        }
+.language-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 10px;
+  padding: 5px;
+  background: #302f36;
+  border: 1px solid #48464f;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px #0005;
+  z-index: 1000;
+}
 
-        .language-arrow {
-            margin-left: 4px;
-            transition: transform 0.2s ease;
-        }
+.language-menu[hidden] {
+  display: none;
+}
 
-        .language-button[aria-expanded="true"] .language-arrow {
-            transform: rotate(180deg);
-        }
+.language-menu a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 7px;
+  white-space: nowrap;
+}
 
-        .language-menu {
-            position: absolute;
-            top: calc(100% + 8px);
-            right: 0;
-            min-width: 155px;
-            padding: 5px;
-            background: #302f36;
-            border: 1px solid #48464f;
-            border-radius: 10px;
-            box-shadow: 0 8px 24px #0005;
-            z-index: 1000;
-        }
+.language-menu a:hover,
+.language-menu a:focus-visible {
+  background: #48464f;
+  outline: none;
+}
+.spin-once {
+  animation: rotation 1s ease-in-out;
+}
 
-        .language-menu[hidden] {
-            display: none;
-        }
-
-        .language-menu a {
-            display: block;
-            padding: 10px;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 7px;
-            white-space: nowrap;
-        }
-
-        .language-menu a:hover,
-        .language-menu a:focus-visible {
-            background: #48464f;
-            outline: none;
-        }
-
-        @keyframes rotation {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
         .footer {
             margin-top: 35px;
             font-size: 0.8rem;
@@ -379,10 +422,6 @@
             .status-box {
                 font-size: 1.1rem;
             }
-
-            #lastoutage {
-                font-size: 1rem;
-            }
         }
     </style>
 </head>
@@ -391,6 +430,8 @@
     <h1 id="title">Estado de los servidores de Geometry Dash</h1>
 
     <nav class="toolbar" aria-label="Acciones del sitio">
+
+       
         <img src="../tt.png" id="tiktok"
              alt="Visita isGDDown en TikTok"
              role="link" tabindex="0">
@@ -405,20 +446,7 @@
         <img src="../discord.png" id="discord"
              alt="Únete al Discord de isGDDown"
              role="link" tabindex="0">
-    </nav>
-
-    <script src="pushntf.js"></script>
-
-    <main class="card">
-        <img src="../font.png" id="h1"
-             alt="¿Está caído Geometry Dash?">
-
-        <div id="status-box" class="status-box checking"
-             role="status" aria-live="polite">
-            Comprobando el estado de los servidores de Geometry Dash...
-        </div>
-
-        <div class="language-switcher">
+             <div class="language-switcher">
             <button class="language-button"
                     id="languageButton"
                     aria-expanded="false"
@@ -433,13 +461,43 @@
                 <a href="/pl/" lang="pl">🇵🇱 Polski</a>
                 <a href="/es/" lang="es" aria-current="page">🇪🇸 Español</a>
             </div>
+            
+        
+    </nav>
+
+    <script src="../pushntf.js"></script>
+    
+
+    <main class="card">
+        <img src="../font.png" id="h1"
+             alt="¿Está caído Geometry Dash?">
+
+        <div id="status-box" class="status-box checking"
+             role="status" aria-live="polite">
+            Comprobando el estado de los servidores de Geometry Dash...
         </div>
-    </main>
-
-    <p id="lastoutage">
-        Cargando el historial de interrupciones...
+        <p id="lvlcheck">
+        Comprobando el estado de descarga del nivel...
+    </p><br><p id="acccheck">
+        Consultar el estado de la búsqueda de la cuenta...
+    </p><br>
+    </p><p id="lvlsearch">
+        Comprobando la búsqueda de nivel...
+    </p><br>
+    </p><p id="leaderboardcheck">
+        Revisando las clasificaciones...
+    </p><br>
+    </p><p id="commentcheck">
+        Revisando la sección de comentarios...
     </p>
-
+    <br>
+    <br>
+    <p id="idk">Comprobando el estado del servidor...</p>
+<br>
+        
+    </main>
+    
+<br>
     <p id="idk">Comprobando el estado del servidor...</p>
 
     <p id="information">
@@ -454,13 +512,9 @@
         <h2 id="faq-heading">Preguntas frecuentes</h2>
 
         <article class="faq-item">
-            <h3>¿Cómo puedo saber si los servidores de Geometry Dash no están disponibles?</h3>
+            <h3>¿Cómo puedo saber si Geometry Dash no funciona?</h3>
             <p>
-                Si el estado muestra "Respuesta corta: Sí", los servicios
-                monitorizados por isGDDown parecen no estar disponibles.
-                Si muestra "Respuesta corta: No", las comprobaciones indican
-                que son accesibles. Esto no garantiza que todas las funciones
-                en línea estén operativas.
+                Arriba hay varias pruebas. Si todas las pruebas indican que el juego funciona, «Geometry Dash» funciona plenamente; si entre 2 y 4 pruebas han dado resultado positivo, el juego funciona parcialmente; si ninguna de las funciones funciona, el juego no está disponible en absoluto. La lista de pruebas se encuentra más arriba.
             </p>
         </article>
 
@@ -549,62 +603,36 @@
 
         async function sprawdzGD() {
             if (isChecking) return;
+            lvlcheck.innerHTML = "Comprobando el estado de descarga del nivel...";
+            acccheck.innerHTML = "Consultar el estado de la búsqueda de la cuenta...";
+            lvlsearch.innerHTML = "Estado de búsqueda de nivel...";
+            commentcheck.innerHTML = "Comprobando el estado de la sección de comentarios...";
+            leaderboardcheck.innerHTML = "Comprobando el estado de la clasificación...";
 
+            lvlcheck.style.color = "gray";
+            acccheck.style.color = "gray";
+            lvlsearch.style.color = "gray";
+            leaderboardcheck.style.color = "gray";
+            commentcheck.style.color = "gray";
+
+            refreshBtn.classList.add('spin-once');
             isChecking = true;
-            refreshBtn.classList.add("spin-once");
-
             statusBox.className = "status-box checking";
-            statusBox.textContent = "Cargando el estado del servidor...";
-
+            statusBox.innerText = "Cargando estado del servidor...";
+            statusBox.style.color = "gray";
+            Report = 0;
             try {
                 const response = await fetch(
                     "https://mute-tree-5cba.kebab67123.workers.dev/status",
                     { cache: "no-store" }
-                );
-
+                )
+                 const data = await response.json();
+                
+                
                 if (!response.ok) {
                     throw new Error("Status request failed");
                 }
-
-                const data = await response.json();
-
-                if (typeof data.online !== "boolean") {
-                    throw new Error("Invalid status response");
-                }
-
-                const lastdown = data.wasdown;
-
-                if (
-                    !lastdown ||
-                    lastdown === "unknown" ||
-                    lastdown === "2026-10-11T14:06:19.215Z"
-                ) {
-                    lastdownp.textContent =
-                        "Todavía no se han registrado interrupciones.";
-                } else {
-                    const outageDate = new Date(lastdown);
-
-                    if (Number.isNaN(outageDate.getTime())) {
-                        lastdownp.textContent =
-                            "No se pudo determinar la última interrupción.";
-                    } else {
-                        const formattedOutageDate =
-                            new Intl.DateTimeFormat("es-ES", {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric",
-                                hour: "2-digit",
-                                minute: "2-digit",
-                                second: "2-digit",
-                                hour12: false
-                            }).format(outageDate);
-
-                        lastdownp.textContent =
-                            "Última interrupción registrada: " +
-                            formattedOutageDate;
-                    }
-                }
-
+               
                 const now = new Date();
 
                 const formattedDate = new Intl.DateTimeFormat("es-ES", {
@@ -617,26 +645,122 @@
                     hour12: false
                 }).format(now);
 
-                date.textContent = "Última comprobación: " + formattedDate;
+                date.innerHTML = "Consultado por última vez en: " + formattedDate;
 
                 if (data.online) {
-                    statusBox.className = "status-box online";
-                    statusBox.textContent = "Respuesta corta: No";
+                    
+                    leaderboardcheck.innerHTML = "¡Las tablas de clasificación ya están operativas!";
+                    leaderboardcheck.style.color = "lightgreen";
+                    Report += 1;
+                    console.log("Leaderboard")
+        
                 } else {
-                    statusBox.className = "status-box offline";
-                    statusBox.textContent = "Respuesta corta: Sí";
+                    
+                    leaderboardcheck.innerHTML = "¡Las tablas de clasificación NO están operativas!";
+                    leaderboardcheck.style.color = "red";
                 }
+
             } catch (error) {
-                console.error("Error al comprobar el estado:", error);
-
                 statusBox.className = "status-box checking";
-                statusBox.textContent =
-                    "No se pudo comprobar el estado.";
+                leaderboardcheck.innerHTML = "¡No se pueden consultar las clasificaciones!";
+                leaderboardcheck.style.color = "red";
+                console.log(error);
 
-                date.textContent =
-                    "No se pudo completar la última comprobación.";
             } finally {
                 isChecking = false;
+            }
+        try{
+                const response = await fetch(
+                    "https://mute-tree-5cba.kebab67123.workers.dev/level",
+                    { cache: "no-store" }
+                )
+
+                const data = await response.json();
+                if (data.online) {
+                    lvlsearch.style.color = "lightgreen";
+                    lvlsearch.innerHTML = "¡La descarga de niveles ya está operativa!"
+                    Report += 1;
+                    console.log("level")
+                } else {
+                    lvlsearch.style.color = "red";
+                    lvlsearch.innerHTML = "¡La descarga de niveles no funciona!"
+                }
+            } finally {
+                console.log("");
+            }
+            try{
+                const response = await fetch(
+                    "https://mute-tree-5cba.kebab67123.workers.dev/search",
+                    { cache: "no-store" }
+                )
+
+                const data = await response.json();
+                if (data.online) {
+                    lvlcheck.style.color = "lightgreen";
+                    lvlcheck.innerHTML = "¡La búsqueda de niveles ya está operativa!"
+                    Report += 1;
+                    console.log("level")
+                } else {
+                    lvlcheck.style.color = "red";
+                    lvlcheck.innerHTML = "¡La búsqueda de niveles no funciona!"
+                }
+            } finally {
+                console.log("");
+            }
+        try{
+                const response = await fetch(
+                    "https://mute-tree-5cba.kebab67123.workers.dev/comments",
+                    { cache: "no-store" }
+                )
+
+                const data = await response.json();
+                if (data.online) {
+                    commentcheck.style.color = "lightgreen";
+                    commentcheck.innerHTML = "¡Los comentarios ya están operativos!"
+                    Report += 1;
+                    console.log("comment")
+                } else {
+                    lvlcheck.style.color = "red";
+                    lvlcheck.innerHTML = "¡Los comentarios no funcionan!"
+                }
+            } finally {
+                console.log("");
+            }
+            
+        
+        
+            try{
+                const response = await fetch(
+                    "https://mute-tree-5cba.kebab67123.workers.dev/account",
+                    { cache: "no-store" }
+                )
+
+                const data = await response.json();
+                if (data.online) {
+                    acccheck.style.color = "lightgreen";
+                    acccheck.innerHTML = "¡La búsqueda de cuentas ya está operativa!"
+                    Report += 1;
+                } else {
+                    acccheck.style.color = "red";
+                    acccheck.innerHTML = "¡La búsqueda de cuentas no funciona!"
+                }
+            } finally {
+                console.log("");
+            }
+            console.log(Report);
+            if (Report == 0){
+                statusBox.className = "status-box offline";
+                statusBox.innerText = "🔴 ¡Geometry Dash no funciona!";
+            }
+            if (Report == 1 || Report == 2 || Report == 3){
+                statusBox.className = "status-box offline";
+                statusBox.style.color = "orange";
+                statusBox.innerText = "🟠 ¡Geometry Dash está parcialmente caído!";
+            }
+            if (Report == 4 || Report == 5) {
+                statusBox.className = "status-box online";
+                statusBox.style.color = "lightgreen";
+                statusBox.innerText = "🟢 ¡Geometry Dash ya está operativo!";
             }
         }
 

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -59,7 +58,7 @@
               "name": "Jak sprawdzić, czy serwery Geometry Dash nie działają?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Jeśli status pokazuje Krótka odpowiedź: Tak, monitorowane przez isGDDown usługi mogą być niedostępne. Jeśli pokazuje Krótka odpowiedź: Nie, testowane usługi odpowiadają. Nie oznacza to jednak, że wszystkie funkcje online działają prawidłowo."
+                "text": "Powyżej znajduje się kilka testów. Jeśli wszystkie testy wskazują, że gra działa, to „Geometry Dash” działa w pełni; jeśli 2–4 testy dały wynik pozytywny, to gra działa częściowo; jeśli żadna z funkcji nie działa, to gra jest całkowicie niedostępna. Lista testów znajduje się powyżej."
               }
             },
             {
@@ -109,6 +108,7 @@
         });
       });
     </script>
+
 
     <style>
         * {
@@ -194,15 +194,27 @@
             overflow-wrap: anywhere;
         }
 
-        .checking { color: #cbd5e1; }
-        .online { color: #4ade80; }
-        .offline { color: #f87171; }
+        .checking {
+            color: #cbd5e1;
+        }
+
+        .online {
+            color: #4ade80;
+        }
+
+        .offline {
+            color: #f87171;
+        }
 
         #idk {
             color: #d1d5db;
             font-size: 0.8rem;
             line-height: 1.5;
-            text-align: center;
+        }
+        #wow {
+            color: white;
+            font-size:2.0rem;
+            line-height: 1.5;
         }
 
         #information {
@@ -260,98 +272,145 @@
             margin-top: 10px;
             text-align: center;
         }
+        #lvlcheck{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+#acccheck{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+#leaderboardcheck{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+#commentcheck{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+#lvlsearch{
+  border: 5px solid gray;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: auto;  
+  color: gray;
+  padding: 50px;
+  text-align: center;
+}
+.language-switcher {
+  position: relative;
+  display: inline-block;
+  font-family: inherit;
+}
 
-        #lastoutage {
-            width: 100%;
-            max-width: 650px;
-            border: 5px solid gray;
-            letter-spacing: 1px;
-            font-weight: bolder;
-            border-radius: 10px;
-            font-size: 1.15rem;
-            text-transform: uppercase;
-            margin: 20px auto;
-            color: lightgreen;
-            padding: 30px 15px;
-            text-align: center;
-            overflow-wrap: anywhere;
-        }
+.language-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  color: #fff;
+  background: #302f36;
+  border: 1px solid #48464f;
+  border-radius: 10px;
+  cursor: pointer;
+  font: inherit;
+  transition: background 0.2s ease;
+}
 
-        .spin-once {
-            animation: rotation 1s ease-in-out;
-        }
+.language-button:hover {
+  background: #403e48;
+}
 
-        .language-switcher {
-            position: relative;
-            display: inline-block;
-            font-family: inherit;
-            margin-top: 12px;
-        }
+.language-arrow {
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
 
-        .language-button {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 14px;
-            color: #fff;
-            background: #302f36;
-            border: 1px solid #48464f;
-            border-radius: 10px;
-            cursor: pointer;
-            font: inherit;
-            transition: background 0.2s ease;
-        }
+.language-button[aria-expanded="true"] .language-arrow {
+  transform: rotate(180deg);
+}
 
-        .language-button:hover {
-            background: #403e48;
-        }
+.language-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 155px;
+  padding: 5px;
+  background: #302f36;
+  border: 1px solid #48464f;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px #0005;
+  z-index: 1000;
+}
 
-        .language-arrow {
-            margin-left: 4px;
-            transition: transform 0.2s ease;
-        }
+.language-menu[hidden] {
+  display: none;
+}
 
-        .language-button[aria-expanded="true"] .language-arrow {
-            transform: rotate(180deg);
-        }
+.language-menu a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 7px;
+  white-space: nowrap;
+}
 
-        .language-menu {
-            position: absolute;
-            top: calc(100% + 8px);
-            right: 0;
-            min-width: 155px;
-            padding: 5px;
-            background: #302f36;
-            border: 1px solid #48464f;
-            border-radius: 10px;
-            box-shadow: 0 8px 24px #0005;
-            z-index: 1000;
-        }
+.language-menu a:hover,
+.language-menu a:focus-visible {
+  background: #48464f;
+  outline: none;
+}
+.spin-once {
+  animation: rotation 1s ease-in-out;
+}
+.spin-once {
+  animation: rotation 1s ease-in-out;
+}
 
-        .language-menu[hidden] {
-            display: none;
-        }
-
-        .language-menu a {
-            display: block;
-            padding: 10px;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 7px;
-            white-space: nowrap;
-        }
-
-        .language-menu a:hover,
-        .language-menu a:focus-visible {
-            background: #48464f;
-            outline: none;
-        }
-
-        @keyframes rotation {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
         .footer {
             margin-top: 35px;
             font-size: 0.8rem;
@@ -365,14 +424,15 @@
                 padding-right: 14px;
             }
 
-            .status-box { font-size: 1.1rem; }
-            #lastoutage { font-size: 1rem; }
+            .status-box {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <h1 id="title">Status serwerów Geometry Dash</h1>
+    <h1 id="title">Stan serwerów Geometry Dash</h1>
 
     <nav class="toolbar" aria-label="Akcje strony">
         <img src="../tt.png" id="tiktok"
@@ -389,20 +449,7 @@
         <img src="../discord.png" id="discord"
              alt="Dołącz do Discorda isGDDown"
              role="link" tabindex="0">
-    </nav>
-
-    <script src="pushntf.js"></script>
-
-    <main class="card">
-        <img src="../font.png" id="h1"
-             alt="Czy Geometry Dash nie działa?">
-
-        <div id="status-box" class="status-box checking"
-             role="status" aria-live="polite">
-            Sprawdzanie statusu serwerów Geometry Dash...
-        </div>
-
-        <div class="language-switcher">
+            <div class="language-switcher">
             <button class="language-button"
                     id="languageButton"
                     aria-expanded="false"
@@ -414,108 +461,129 @@
 
             <div class="language-menu" id="languageMenu" hidden>
                 <a href="/" lang="en">🇬🇧 English</a>
-                <a href="/pl/" lang="pl" aria-current="page">🇵🇱 Polski</a>
-                <a href="/es/" lang="es">🇪🇸 Español</a>
+                <a href="/pl/" lang="pl">🇵🇱 Polski</a>
+                <a href="/es/" lang="es" aria-current="page">🇪🇸 Español</a>
             </div>
+    </nav>
+
+
+    <script src="../pushntf.js"></script>
+
+    <main class="card">
+        <img src="../font.png" id="h1"
+             alt="Czy Geometry Dash nie działa?">
+
+        <div id="status-box" class="status-box checking"
+             role="status" aria-live=„polite”>
+            Sprawdzam stan serwerów Geometry Dash...
         </div>
-    </main>
-
-    <p id="lastoutage">
-        Wczytywanie historii awarii...
+        <p id="lvlcheck">
+        Sprawdzam stan pobierania poziomu...
+    </p><br><p id="acccheck">
+        Sprawdzam stan wyszukiwania konta...
+    </p><br>
+    </p><p id="lvlsearch">
+        Sprawdzam wyszukiwanie poziomu...
+    </p><br>
+    </p><p id="leaderboardcheck">
+        Sprawdzanie rankingów...
+    </p><br>
+    </p><p id="commentcheck">
+        Sprawdzanie sekcji komentarzy...
     </p>
-
-    <p id="idk">Sprawdzanie statusu serwerów...</p>
+    <br>
+    <br>
+    <p id="idk">Sprawdzanie...</p>
 
     <p id="information">
-        isGDDown to niezależne narzędzie do sprawdzania statusu serwerów
-        Geometry Dash. Wykorzystuje własny system do weryfikacji dostępności
-        wybranych usług online i pomaga graczom diagnozować problemy
-        z połączeniem. Projekt społecznościowy nie jest powiązany z RobTop Games.
+        isGDDown to niezależne narzędzie służące do sprawdzania stanu
+        serwerów Geometry Dash. Wykorzystuje własny system do
+        weryfikacji dostępności określonych usług online i
+        pomaga graczom w diagnozowaniu problemów z połączeniem.
+        Ten projekt społecznościowy nie jest powiązany z RobTop Games.
     </p>
 
     <section class="faq-section" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">Najczęściej zadawane pytania</h2>
+        <h2 id="faq-heading">Preguntas frecuentes</h2>
 
         <article class="faq-item">
-            <h3>Jak sprawdzić, czy serwery Geometry Dash nie działają?</h3>
+            <h3>Skąd mam wiedzieć że Geometry Dash Nie Działa?</h3>
             <p>
-                Jeśli status pokazuje „Krótka odpowiedź: Tak”, monitorowane
-                przez isGDDown usługi mogą być niedostępne. Jeśli pokazuje
-                „Krótka odpowiedź: Nie”, testowane usługi odpowiadają.
-                Nie oznacza to jednak, że wszystkie funkcje online działają prawidłowo.
+                Powyżej znajduje się kilka testów. Jeśli wszystkie testy wskazują, że gra działa, to „Geometry Dash” działa w pełni; jeśli 2–4 testy dały wynik pozytywny, to gra działa częściowo; jeśli żadna z funkcji nie działa, to gra jest całkowicie niedostępna. Lista testów znajduje się powyżej.
             </p>
         </article>
 
         <article class="faq-item">
-            <h3>Jak isGDDown sprawdza stan serwerów?</h3>
+            <h3>W jaki sposób isGDDown sprawdza stan serwera?</h3>
             <p>
-                Strona pobiera raport statusu z własnego serwera, który sprawdza
-                dostępność wybranych usług online Geometry Dash, w tym połączenie
-                z Boomlings i dostępność tabeli wyników. Wynik nie pochodzi
-                z oficjalnego systemu statusu RobTop Games.
+                Witryna wysyła żądanie o raport stanu do własnego serwera.
+                Ten sprawdza określone usługi online Geometry Dash,
+                w tym łączność z Boomlings oraz dostępność
+                tabeli wyników. Wynik nie pochodzi z
+                oficjalnego systemu sprawdzania stanu firmy RobTop Games.
             </p>
         </article>
 
         <article class="faq-item">
             <h3>Dlaczego nie mogę połączyć się z Geometry Dash?</h3>
             <p>
-                Problemy z połączeniem mogą wynikać z awarii serwera, problemów
-                z internetem lub niedostępności konkretnej usługi online.
-                Jeśli testy isGDDown działają poprawnie, sprawdź swoje połączenie
-                i spróbuj ponownie później.
+                Problemy z połączeniem mogą wynikać z awarii serwera,
+                problemów z połączeniem internetowym lub problemów z konkretną
+                usługą online. Jeśli wyniki sprawdzania serwisu isGDDown są
+                pozytywne, sprawdź swoje połączenie i spróbuj ponownie później.
             </p>
         </article>
 
         <article class="faq-item">
-            <h3>Dlaczego pojawia się błąd „Save Failed”?</h3>
+            <h3>Dlaczego pojawia się błąd „Błąd podczas zapisywania”?</h3>
             <p>
-                Błąd zapisywania nie musi oznaczać, że wszystkie serwery
-                Geometry Dash są niedostępne. Sprawdź połączenie z internetem,
-                a jeśli problem się utrzymuje, skontaktuj się z pomocą techniczną
-                Geometry Dash.
+                Błąd podczas zapisywania niekoniecznie oznacza, że wszystkie
+                serwery Geometry Dash są nieczynne. Sprawdź swoje
+                połączenie i skontaktuj się z pomocą techniczną Geometry Dash, jeśli
+                problem nadal występuje.
             </p>
         </article>
 
         <article class="faq-item">
-            <h3>Czy isGDDown jest oficjalnym narzędziem RobTop?</h3>
+            <h3>Czy isGDDown jest oficjalnym narzędziem do sprawdzania stanu gry RobTop?</h3>
             <p>
-                Nie. isGDDown to niezależny projekt fanowski, który nie jest
-                powiązany z RobTop Games ani przez tę firmę wspierany.
+                Nie. isGDDown to niezależny projekt stworzony przez fanów.
+                Nie jest on powiązany z firmą RobTop Games ani przez nią wspierany.
             </p>
         </article>
 
         <article class="faq-item">
-            <h3>Kto stworzył i utrzymuje tę stronę?</h3>
+            <h3>Kto stworzył tę stronę internetową i kto ją utrzymuje?</h3>
             <p>
-                Strona została stworzona i jest utrzymywana przez KebabFan.
+                Ta strona internetowa została stworzona i jest utrzymywana przez KebabFan.
             </p>
         </article>
 
         <article class="faq-item">
-            <h3>Jak skontaktować się z twórcą?</h3>
+            <h3>Jak mogę skontaktować się z autorem?</h3>
             <p>
-                Możesz skontaktować się z twórcą przez e-mail:
+                Możesz skontaktować się z autorem za pośrednictwem poczty elektronicznej:
                 <a href="mailto:isgddown@zohomail.eu">isgddown@zohomail.eu</a>.
             </p>
         </article>
 
         <article class="faq-item">
-            <h3>Czy mogę skopiować tę stronę i przedstawić ją jako własną?</h3>
+            <h3>Czy mogę skopiować lub wstawić tę stronę tak, jakby była moja?</h3>
             <p>
-                Szanuj pracę twórcy i nie kopiuj treści, przedstawiając je jako
-                własne. Jeśli korzystasz z isGDDown, umieść link do oryginalnej strony.
+                Szanuj pracę autora i nie kopiuj treści tak,
+                jakby była twoja. Jeśli korzystasz z isGDDown, umieść link do oryginalnej strony.
             </p>
         </article>
     </section>
 
-    <p class="subtext">
-        isGDDown sprawdza wybrane usługi online za pomocą własnego systemu.
-        Wyniki są niezależnymi szacunkami i mogą nie odzwierciedlać stanu
-        wszystkich funkcji Geometry Dash.
+     <p class="subtext">
+        isGDDown sprawdza określone usługi internetowe za pomocą własnego
+        systemu. Wyniki są niezależnymi szacunkami i mogą nie
+        odzwierciedlać stanu wszystkich funkcji Geometry Dash.
     </p>
 
     <footer class="footer">
-        isGDDown – niezależny monitor statusu serwerów Geometry Dash.
+        isGDDown: niezależny monitor stanu serwerów Geometry Dash.
     </footer>
 
     <script>
@@ -530,65 +598,39 @@
 
         async function sprawdzGD() {
             if (isChecking) return;
+            lvlcheck.innerHTML = "Sprawdzanie Statusu Pobierań Poziomów...";
+            acccheck.innerHTML = "Sprawdzanie Statusu Wyszukiwań Kont...";
+            lvlsearch.innerHTML = "Sprawdzanie Statusu Wyszukiwań Poziomów...";
+            commentcheck.innerHTML = "Sprawdzanie Statusu Komentarzy...";
+            leaderboardcheck.innerHTML = "Sprawdzanie Statusu Tabeli Wyników...";
 
+            lvlcheck.style.color = "gray";
+            acccheck.style.color = "gray";
+            lvlsearch.style.color = "gray";
+            leaderboardcheck.style.color = "gray";
+            commentcheck.style.color = "gray";
+
+            refreshBtn.classList.add('spin-once');
             isChecking = true;
-            refreshBtn.classList.add("spin-once");
-
             statusBox.className = "status-box checking";
-            statusBox.textContent = "Sprawdzanie statusu serwerów...";
-
+            statusBox.innerText = "Ładowanie Raportu";
+            statusBox.style.color = "gray";
+            Report = 0;
             try {
                 const response = await fetch(
                     "https://mute-tree-5cba.kebab67123.workers.dev/status",
                     { cache: "no-store" }
-                );
-
+                )
+                 const data = await response.json();
+                
+                
                 if (!response.ok) {
                     throw new Error("Status request failed");
                 }
-
-                const data = await response.json();
-
-                if (typeof data.online !== "boolean") {
-                    throw new Error("Invalid status response");
-                }
-
-                const lastdown = data.wasdown;
-
-                if (
-                    !lastdown ||
-                    lastdown === "unknown" ||
-                    lastdown === "2026-10-11T14:06:19.215Z"
-                ) {
-                    lastdownp.textContent =
-                        "Nie odnotowano jeszcze awarii.";
-                } else {
-                    const outageDate = new Date(lastdown);
-
-                    if (Number.isNaN(outageDate.getTime())) {
-                        lastdownp.textContent =
-                            "Nie udało się ustalić daty ostatniej awarii.";
-                    } else {
-                        const formattedOutageDate =
-                            new Intl.DateTimeFormat("pl-PL", {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric",
-                                hour: "2-digit",
-                                minute: "2-digit",
-                                second: "2-digit",
-                                hour12: false
-                            }).format(outageDate);
-
-                        lastdownp.textContent =
-                            "Ostatnia zarejestrowana awaria: " +
-                            formattedOutageDate;
-                    }
-                }
-
+               
                 const now = new Date();
 
-                const formattedDate = new Intl.DateTimeFormat("pl-PL", {
+                const formattedDate = new Intl.DateTimeFormat("es-ES", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
@@ -598,26 +640,122 @@
                     hour12: false
                 }).format(now);
 
-                date.textContent = "Ostatnie sprawdzenie: " + formattedDate;
+                date.innerHTML = "Consultado por última vez en: " + formattedDate;
 
                 if (data.online) {
-                    statusBox.className = "status-box online";
-                    statusBox.textContent = "Krótka odpowiedź: Nie";
+                    
+                    leaderboardcheck.innerHTML = "Tabela Wyników Gry Działa Doskonale!";
+                    leaderboardcheck.style.color = "lightgreen";
+                    Report += 1;
+                    console.log("Leaderboard")
+        
                 } else {
-                    statusBox.className = "status-box offline";
-                    statusBox.textContent = "Krótka odpowiedź: Tak";
+                    
+                    leaderboardcheck.innerHTML = "Tabela Wyników Gry NIE Działa!";
+                    leaderboardcheck.style.color = "red";
                 }
+
             } catch (error) {
-                console.error("Błąd sprawdzania statusu:", error);
-
                 statusBox.className = "status-box checking";
-                statusBox.textContent =
-                    "Nie udało się sprawdzić statusu serwerów.";
+                leaderboardcheck.innerHTML = "Nie można sprawdzić";
+                leaderboardcheck.style.color = "red";
+                console.log(error);
 
-                date.textContent =
-                    "Nie udało się ukończyć sprawdzania.";
             } finally {
                 isChecking = false;
+            }
+        try{
+                const response = await fetch(
+                    "https://mute-tree-5cba.kebab67123.workers.dev/level",
+                    { cache: "no-store" }
+                )
+
+                const data = await response.json();
+                if (data.online) {
+                    lvlsearch.style.color = "lightgreen";
+                    lvlsearch.innerHTML = "Wyszukiwanie poziomów DZIAŁA!"
+                    Report += 1;
+                    console.log("level")
+                } else {
+                    lvlsearch.style.color = "red";
+                    lvlsearch.innerHTML = "Wyszukiwanie poziomów NIE Działa!"
+                }
+            } finally {
+                console.log("");
+            }
+            try{
+                const response = await fetch(
+                    "https://mute-tree-5cba.kebab67123.workers.dev/search",
+                    { cache: "no-store" }
+                )
+
+                const data = await response.json();
+                if (data.online) {
+                    lvlcheck.style.color = "lightgreen";
+                    lvlcheck.innerHTML = "Pobieranie Poziomów Działa!"
+                    Report += 1;
+                    console.log("level")
+                } else {
+                    lvlcheck.style.color = "red";
+                    lvlcheck.innerHTML = "Pobieranie Poziomów NIE Działa"
+                }
+            } finally {
+                console.log("");
+            }
+        try{
+                const response = await fetch(
+                    "https://mute-tree-5cba.kebab67123.workers.dev/comments",
+                    { cache: "no-store" }
+                )
+
+                const data = await response.json();
+                if (data.online) {
+                    commentcheck.style.color = "lightgreen";
+                    commentcheck.innerHTML = "Komentarze DZIAŁAJĄ!"
+                    Report += 1;
+                    console.log("comment")
+                } else {
+                    lvlcheck.style.color = "red";
+                    lvlcheck.innerHTML = "Komentarze NIE Działają!"
+                }
+            } finally {
+                console.log("");
+            }
+            
+        
+        
+            try{
+                const response = await fetch(
+                    "https://mute-tree-5cba.kebab67123.workers.dev/account",
+                    { cache: "no-store" }
+                )
+
+                const data = await response.json();
+                if (data.online) {
+                    acccheck.style.color = "lightgreen";
+                    acccheck.innerHTML = "Wyszukiwanie Kont DZIAŁA!"
+                    Report += 1;
+                } else {
+                    acccheck.style.color = "red";
+                    acccheck.innerHTML = "Wyszukiwanie Kont NIE Działa!"
+                }
+            } finally {
+                console.log("");
+            }
+            console.log(Report);
+            if (Report == 0){
+                statusBox.className = "status-box offline";
+                statusBox.innerText = "🔴 Geometry Dash NIE Działa!";
+            }
+            if (Report == 1 || Report == 2 || Report == 3){
+                statusBox.className = "status-box offline";
+                statusBox.style.color = "orange";
+                statusBox.innerText = "🟠 CZĘŚĆ Geometry Dash Działa! ";
+            }
+            if (Report == 4 || Report == 5) {
+                statusBox.className = "status-box online";
+                statusBox.style.color = "lightgreen";
+                statusBox.innerText = "🟢 Geometry Dash Działa!";
             }
         }
 
