@@ -2,4 +2,7 @@
 User-agent: *
 Allow: /
 
+User-agent: Googlebot-Image
+Disallow: /
+
 Sitemap: https://isgddown-now.work.gd/sitemap.xml
