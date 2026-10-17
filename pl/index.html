@@ -594,10 +594,11 @@
         const refreshBtn = document.getElementById("refresh");
         const lastdownp = document.getElementById("lastoutage");
 
-        let isChecking = false;
+        let ifchecking = false;
 
         async function sprawdzGD() {
-            if (isChecking) return;
+            if (ifchecking == false) {
+ifchecking = true
             lvlcheck.innerHTML = "Sprawdzanie Statusu Pobierań Poziomów...";
             acccheck.innerHTML = "Sprawdzanie Statusu Wyszukiwań Kont...";
             lvlsearch.innerHTML = "Sprawdzanie Statusu Wyszukiwań Poziomów...";
@@ -611,7 +612,7 @@
             commentcheck.style.color = "gray";
 
             refreshBtn.classList.add('spin-once');
-            isChecking = true;
+            
             statusBox.className = "status-box checking";
             statusBox.innerText = "Ładowanie Raportu";
             statusBox.style.color = "gray";
@@ -662,7 +663,7 @@
                 console.log(error);
 
             } finally {
-                isChecking = false;
+                
             }
         try{
                 const response = await fetch(
@@ -757,6 +758,8 @@
                 statusBox.style.color = "lightgreen";
                 statusBox.innerText = "🟢 Geometry Dash Działa!";
             }
+ifchecking = false;
+} else {}
         }
 
         function ttredirect() {
