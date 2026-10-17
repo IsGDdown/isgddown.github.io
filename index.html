@@ -572,11 +572,12 @@
         const leaderboardcheck = document.getElementById("leaderboardcheck");
         const lvlsearch = document.getElementById("lvlsearch")
 
+        let ifchecking = false;
         
-        let isChecking = false;
 
         async function sprawdzGD() {
-            if (isChecking) return;
+            if (ifchecking == false) {
+            ifchecking = true;
             lvlcheck.innerHTML = "Checking Level Download Status...";
             acccheck.innerHTML = "Checking Account Searching Status...";
             lvlsearch.innerHTML = "Level Searching Status...";
@@ -590,7 +591,7 @@
             commentcheck.style.color = "gray";
 
             refreshBtn.classList.add('spin-once');
-            isChecking = true;
+            
             statusBox.className = "status-box checking";
             statusBox.innerText = "Loading server status...";
             statusBox.style.color = "gray";
@@ -642,7 +643,7 @@
                 console.log(error);
 
             } finally {
-                isChecking = false;
+                
             }
         try{
                 const response = await fetch(
@@ -737,6 +738,8 @@
                 statusBox.style.color = "lightgreen";
                 statusBox.innerText = "🟢 Geometry Dash Is Operational!";
             }
+ifchecking = false;
+} else {}
         }
         
 
