@@ -598,11 +598,11 @@
         const discordBtn = document.getElementById("discord");
         const refreshBtn = document.getElementById("refresh");
         const lastdownp = document.getElementById("lastoutage");
-
-        let isChecking = false;
+let ifchecking = false;
 
         async function sprawdzGD() {
-            if (isChecking) return;
+           if (ifchecking == false){
+            ifchecking = true;
             lvlcheck.innerHTML = "Comprobando el estado de descarga del nivel...";
             acccheck.innerHTML = "Consultar el estado de la búsqueda de la cuenta...";
             lvlsearch.innerHTML = "Estado de búsqueda de nivel...";
@@ -616,7 +616,7 @@
             commentcheck.style.color = "gray";
 
             refreshBtn.classList.add('spin-once');
-            isChecking = true;
+           
             statusBox.className = "status-box checking";
             statusBox.innerText = "Cargando estado del servidor...";
             statusBox.style.color = "gray";
@@ -667,7 +667,7 @@
                 console.log(error);
 
             } finally {
-                isChecking = false;
+                
             }
         try{
                 const response = await fetch(
@@ -762,8 +762,9 @@
                 statusBox.style.color = "lightgreen";
                 statusBox.innerText = "🟢 ¡Geometry Dash ya está operativo!";
             }
-        }
-
+ifchecking = false
+        } else {}
+}
         function ttredirect() {
             window.location.href = "https://www.tiktok.com/@kebabfan22";
         }
